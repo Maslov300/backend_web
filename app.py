@@ -35,4 +35,18 @@ def image():
     </body>
     </html>
     '''
+
+count = 0
+@app.route("/counter")
+def counter():
+    global count
+    count += 1
+    return f"""<!doctype html >
+    <html>
+    <body>
+    Сколько раз вы сюда заходили:{count}
+    </body>
+    </html>
+    """
+
 app.run(debug=True)

@@ -79,4 +79,17 @@ def created():
     </html>
     """, 201
 
+
+@app.route("/web")
+def web():
+    return """"<!doctype html >
+    <html>
+    <body>
+    <h1>Web сервер на flask</h1>
+    </body>
+    </html>
+    """, 200, {
+        'X-Server' : 'sample',
+        'Content-Type' : 'text/plain ; charset=UTF-8'
+    }
 app.run(debug=True)

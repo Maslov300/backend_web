@@ -1,0 +1,52 @@
+/* Лабораторная работа №1: стили страницы /image */
+body.image-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e8f2ff;
+  color: #18334a;
+}
+.picture-card {
+  margin: 48px auto;
+  max-width: 850px;
+  padding: 28px;
+  text-align: center;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px #173f5f22;
+}
+.tractor {
+  display: block;
+  width: min(100%, 680px);
+  height: 360px;
+  object-fit: contain;
+  margin: 18px auto;
+}
+a { color: #1257b5; }
+
+/* Страница 404 */
+body.error-page {
+  margin: 0;
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  background: #f5f8fc;
+  color: #24334a;
+}
+.error-card {
+  background: white;
+  max-width: 730px;
+  padding: 30px;
+  margin: 25px auto;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 5px 25px #102d4a18;
+}
+.error-picture { width: 220px; height: 160px; object-fit: contain; }
+.error-card h1 { color: #c63636; }
+
+/* Таблица журнала обращений */
+.journal { max-width: 1050px; margin: 25px auto; }
+.journal-scroll { overflow-x: auto; }
+.journal table { width: 100%; border-collapse: collapse; background: white; }
+.journal th, .journal td { border: 1px solid #d6dfea; padding: 10px; text-align: left; }
+.journal th { background: #dceaff; }
+.journal tr:nth-child(even) { background: #f3f7fc; }

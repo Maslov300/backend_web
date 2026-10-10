@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 390" role="img" aria-label="Трактор">
+ <rect width="720" height="390" fill="#d9f3ff"/>
+ <rect y="290" width="720" height="100" fill="#b0d88d"/>
+ <path d="M130 260 L155 150 H320 L345 260" fill="#f0b22a" stroke="#404d5b" stroke-width="12"/>
+ <path d="M176 168 H300 L316 245 H161 Z" fill="#a8e3ff" stroke="#405060" stroke-width="7"/>
+ <path d="M340 210 H530 L575 254 V298 H328 Z" fill="#efbc27" stroke="#b37c14" stroke-width="8"/>
+ <path d="M452 170 V211" stroke="#404d5b" stroke-width="16"/>
+ <path d="M355 211 H538" stroke="#805b11" stroke-width="8"/>
+ <circle cx="230" cy="298" r="74" fill="#273342"/>
+ <circle cx="230" cy="298" r="37" fill="#778b9a"/>
+ <circle cx="520" cy="304" r="50" fill="#273342"/>
+ <circle cx="520" cy="304" r="24" fill="#778b9a"/>
+ <rect x="558" y="244" width="24" height="15" rx="3" fill="#fff1a6"/>
+</svg>

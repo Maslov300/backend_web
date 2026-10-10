@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 230" role="img" aria-label="Заблудившийся робот">
+ <rect width="330" height="230" fill="none"/>
+ <rect x="80" y="55" width="170" height="135" rx="22" fill="#dceaff" stroke="#4071a3" stroke-width="9"/>
+ <circle cx="130" cy="110" r="12" fill="#25384b"/>
+ <circle cx="200" cy="110" r="12" fill="#25384b"/>
+ <path d="M125 155 Q165 135 205 155" fill="none" stroke="#25384b" stroke-width="8" stroke-linecap="round"/>
+ <path d="M165 54 V26" stroke="#4071a3" stroke-width="8"/>
+ <circle cx="165" cy="21" r="12" fill="#efb82b"/>
+ <path d="M41 78 L67 94 M267 94 L292 78" stroke="#4071a3" stroke-width="11" stroke-linecap="round"/>
+ <text x="165" y="215" text-anchor="middle" font-family="Arial" font-size="20" fill="#4071a3">WHERE IS THIS PAGE?</text>
+</svg>

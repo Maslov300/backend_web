@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 2{% endblock %}
+{% block main %}
+<h1>Фрукты, ягоды и овощи ({{ objects | length }})</h1>
+<div class="gallery">
+{% for item in objects %}
+<article class="tile">
+    <img src="{{ url_for('lab2.static', filename='gallery/' ~ item.emoji ~ '.png') }}" alt="{{ item.name }}">
+    <h2>{{ item.name }}</h2>
+    <p>{{ item.description }}</p>
+</article>
+{% endfor %}
+</div>
+{% endblock %}

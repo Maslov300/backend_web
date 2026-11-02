@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if name %}{{ name }}{% else %}Анонимус{% endif %}. {% if lab_num %}Лабораторная работа {{ lab_num }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('lab2.static', filename='main.css') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('lab2.static', filename='favicon.svg') }}">
+</head>
+<body>
+<header>
+    <a href="{{ url_for('index') }}">Главное меню</a> · <a href="{{ url_for('lab2.lab2_index') }}">Лабораторная №2</a>
+    <p>WEB-программирование, часть 2. {% if lab_num %}Лабораторная работа {{ lab_num }}{% endif %}</p>
+</header>
+<main>
+    <h1>Основной контент</h1>
+    <h2>Выражения Jinja</h2>
+    <p>5 + 2 = {{ 5 + 2 }}</p>
+    <p>11 × 28 = {{ 11 * 28 }}</p>
+    <p>3258 − 759 = {{ 3258 - 759 }}</p>
+    <p>8452 / 793 = {{ 8452 / 793 }}</p>
+    <p>45<sup>8</sup> = {{ 45 ** 8 }}</p>
+    <h2>Список фруктов и их цены</h2>
+    <ul>{% for f in fruits %}<li>{{ loop.index }} — {{ f.name }}: {{ f.price }} &#x20bd;</li>{% endfor %}</ul>
+</main>
+<footer>
+    © {% if name %}{{ name }}{% else %}Анонимус{% endif %},
+    {% if group %}{{ group }}{% else %}группа не указана{% endif %},
+    {% if course %}{{ course }} курс{% else %}курс не указан{% endif %}, 2026
+</footer>
+</body>
+</html>

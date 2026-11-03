@@ -6,28 +6,18 @@
 
 *Дата: 12.09.2026*
 
-Исходный код: `lab1/app.py`. Статические ресурсы: `lab1/static/`.
+Код первой лабораторной — `lab1/app.py` (Blueprint `lab1`). Статические ресурсы — `static/lab1/`.
 
 ## Лабораторная работа 2. Шаблоны в flask
 
 *Дата: 02.11.2026*
 
-Исходный код: `lab2/routes.py`. Шаблоны: `lab2/templates/`. Стили и изображения: `lab2/static/`.
+Код второй лабораторной — `lab2/routes.py` (Blueprint `lab2`). Шаблоны — `templates/lab2/`. Статические ресурсы — `static/lab2/`.
 
-## Запуск
+## Лабораторная работа 3. Формы
 
-Для обеих лабораторных используется общий файл `app.py` в корне репозитория.
+*Дата: 03.11.2026*
 
-```bash
-python -m pip install Flask
-flask --app app --debug run
-```
+Код третьей лабораторной — `lab3/routes.py` (Blueprint `lab3`). Шаблоны — `templates/lab3/`. Общий базовый шаблон: `templates/base.html`.
 
-Откройте `http://127.0.0.1:5000/`, затем перейдите к нужной лабораторной работе.
 
-- Лабораторная №1: `/lab1`
-- Лабораторная №2: `/lab2/`
-
-Иллюстрации галереи (20 фруктов и овощей) созданы из локального шрифта Noto Color Emoji (Google, SIL Open Font License 1.1) и сохранены в `lab2/static/gallery/`. Ссылка на проект: https://github.com/googlefonts/noto-emoji.
-
-Настройки скрытия `venv` и `__pycache__` для VS Code находятся в `.vscode/settings.json`. Рекомендация расширения Jinja записана в `.vscode/extensions.json`; установка самого расширения выполняется в VS Code.

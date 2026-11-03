@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block lab %}Лабораторная работа 3{% endblock %}
+{% block main %}
+<h1>Оплата напитка</h1>
+<p>Сумма к оплате: <strong>{{ price }} ₽</strong></p>
+<p class="note">Учебная имитация оплаты. Используйте только вымышленные тестовые реквизиты: настоящие данные банковской карты вводить нельзя. Платежи не проводятся.</p>
+<form class="vertical-form" method="post" action="{{ url_for('lab3.success') }}">
+  <input type="hidden" name="price" value="{{ price }}">
+  <label for="card">Номер тестовой банковской карты:</label>
+  <input id="card" type="text" name="card" pattern="[0-9]{16}" inputmode="numeric" minlength="16" maxlength="16" placeholder="16 цифр" autocomplete="off" required>
+  <label for="cardname">Держатель тестовой карты:</label>
+  <input id="cardname" type="text" name="name" placeholder="TEST USER" autocomplete="off" required>
+  <label for="cvv">Тестовый CVV-код:</label>
+  <input id="cvv" type="text" name="cvv" pattern="[0-9]{3}" inputmode="numeric" minlength="3" maxlength="3" placeholder="3 цифры" autocomplete="off" required>
+  <div class="form-actions"><button type="submit">Имитация оплаты</button><a href="{{ url_for('lab3.order') }}">Отказаться</a></div>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block lab %}Лабораторная работа 3{% endblock %}
+{% block main %}
+<h1>Заказ напитка</h1>
+<form class="vertical-form" action="{{ url_for('lab3.pay') }}" method="get">
+  <fieldset>
+    <legend>Напиток</legend>
+    <label><input type="radio" name="drink" value="cofee" checked> Кофе — 120 ₽</label>
+    <label><input type="radio" name="drink" value="black-tea"> Чёрный чай — 80 ₽</label>
+    <label><input type="radio" name="drink" value="green-tea"> Зелёный чай — 70 ₽</label>
+  </fieldset>
+  <fieldset>
+    <legend>Добавки</legend>
+    <label><input type="checkbox" name="milk"> Молоко — +30 ₽</label>
+    <label><input type="checkbox" name="sugar"> Сахар — +10 ₽</label>
+  </fieldset>
+  <button type="submit">Заказать</button>
+</form>
+{% endblock %}

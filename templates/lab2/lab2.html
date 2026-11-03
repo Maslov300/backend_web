@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 2{% endblock %}
+{# Основной контент лабораторной работы №2 #}
+{% block main %}
+<h1>Шаблоны в Flask</h1>
+<p>Страницы и обработчики лабораторной работы №2:</p>
+<ol class="links">
+    <li><a href="{{ url_for('lab2.slash_without') }}">Путь без завершающего слэша (/lab2/a)</a></li>
+    <li><a href="{{ url_for('lab2.slash_with') }}">Путь с завершающим слэшем (/lab2/a/)</a></li>
+    <li><a href="{{ url_for('lab2.all_flowers') }}">Список цветов, добавление, удаление и сортировка</a></li>
+    <li><a href="{{ url_for('lab2.flowers', flower_id=0) }}">Вывод цветка по номеру (№0)</a></li>
+    <li><a href="{{ url_for('lab2.add_flower', name='георгин') }}">Добавить цветок по имени</a></li>
+    <li><a href="{{ url_for('lab2.add_flower_form') }}">Добавление без имени — ответ 400</a></li>
+    <li><a href="{{ url_for('lab2.clear_flowers') }}">Очистить список цветов</a></li>
+    <li><a href="{{ url_for('lab2.sort_flowers_by_name') }}">Сортировать цветы по названию</a></li>
+    <li><a href="{{ url_for('lab2.sort_flowers_by_price') }}">Сортировать цветы по цене</a></li>
+    <li><a href="{{ url_for('lab2.del_flower', flower_id=0) }}">Удалить цветок №0</a></li>
+    <li><a href="{{ url_for('lab2.example') }}">Пример шаблона: переменные, условия, циклы и вычисления</a></li>
+    <li><a href="{{ url_for('lab2.example', empty=1) }}">Шаблон без переменных — проверка else</a></li>
+    <li><a href="{{ url_for('lab2.filters') }}">Фильтры Jinja</a></li>
+    <li><a href="{{ url_for('lab2.calc_default') }}">Калькулятор: два числа по умолчанию</a></li>
+    <li><a href="{{ url_for('lab2.calc_one_number', a=5) }}">Калькулятор: одно число</a></li>
+    <li><a href="{{ url_for('lab2.calc', a=7, b=3) }}">Калькулятор: два числа</a></li>
+    <li><a href="{{ url_for('lab2.show_books') }}">Книги: 10 записей</a></li>
+    <li><a href="{{ url_for('lab2.show_gallery') }}">Галерея: 20 объектов с изображениями</a></li>
+</ol>
+<p class="note">Список цветов хранится в оперативной памяти сервера: при перезапуске Flask начальные значения восстановятся.</p>
+{% endblock %}

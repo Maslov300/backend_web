@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block lab %}Лабораторная работа 3{% endblock %}
+{% block main %}
+{% if ticket %}
+<h1>{{ 'Детский билет' if ticket.child else 'Железнодорожный билет' }}</h1>
+<section class="ticket">
+  <h2>Данные пассажира</h2>
+  <p><strong>ФИО:</strong> {{ ticket.passenger }}</p>
+  <p><strong>Возраст:</strong> {{ ticket.age }}</p>
+  <p><strong>Маршрут:</strong> {{ ticket.from_city }} — {{ ticket.to_city }}</p>
+  <p><strong>Дата поездки:</strong> {{ ticket.travel_date }}</p>
+  <p><strong>Полка:</strong> {{ ticket.berth_title }}</p>
+  <p><strong>Бельё:</strong> {{ 'да' if ticket.linen == 'yes' else 'нет' }}</p>
+  <p><strong>Багаж:</strong> {{ 'да' if ticket.luggage == 'yes' else 'нет' }}</p>
+  <p><strong>Страховка:</strong> {{ 'да' if ticket.insurance == 'yes' else 'нет' }}</p>
+  <h2>Итого: {{ ticket.price }} ₽</h2>
+</section>
+<p><a href="{{ url_for('lab3.train') }}">Создать новый билет</a></p>
+{% else %}
+<h1>Железнодорожный билет</h1>
+<p>Все поля обязательны. Для дополнительных услуг выберите «Да» или «Нет».</p>
+<form class="vertical-form" action="{{ url_for('lab3.train') }}" method="get" novalidate>
+  <input type="hidden" name="submit" value="1">
+  <label for="passenger">ФИО пассажира:</label>
+  <input type="text" id="passenger" name="passenger" value="{{ values.passenger }}">
+  {% if errors.passenger %}<span class="error">{{ errors.passenger }}</span>{% endif %}
+  <label for="berth">Полка:</label>
+  <select id="berth" name="berth">
+    <option value="">Выберите полку</option>
+    {% for value, title in [('lower', 'Нижняя'), ('upper','Верхняя'), ('upper-side','Верхняя боковая'), ('lower-side','Нижняя боковая')] %}
+    <option value="{{ value }}" {% if values.berth == value %}selected{% endif %}>{{ title }}</option>
+    {% endfor %}
+  </select>
+  {% if errors.berth %}<span class="error">{{ errors.berth }}</span>{% endif %}
+  {% for key, title in [('linen','С бельём'), ('luggage','С багажом'), ('insurance','Нужна страховка')] %}
+    <label for="{{ key }}">{{ title }}:</label>
+    <select name="{{ key }}" id="{{ key }}">
+      <option value="">Выберите</option>
+      <option value="yes" {% if values[key] == 'yes' %}selected{% endif %}>Да</option>
+      <option value="no" {% if values[key] == 'no' %}selected{% endif %}>Нет</option>
+    </select>
+    {% if errors[key] %}<span class="error">{{ errors[key] }}</span>{% endif %}
+  {% endfor %}
+  <label for="age">Возраст (1–120):</label>
+  <input type="number" id="age" name="age" min="1" max="120" value="{{ values.age }}">
+  {% if errors.age %}<span class="error">{{ errors.age }}</span>{% endif %}
+  <label for="from_city">Пункт выезда:</label>
+  <input id="from_city" type="text" name="from_city" value="{{ values.from_city }}">
+  {% if errors.from_city %}<span class="error">{{ errors.from_city }}</span>{% endif %}
+  <label for="to_city">Пункт назначения:</label>
+  <input id="to_city" type="text" name="to_city" value="{{ values.to_city }}">
+  {% if errors.to_city %}<span class="error">{{ errors.to_city }}</span>{% endif %}
+  <label for="travel_date">Дата поездки:</label>
+  <input id="travel_date" type="date" name="travel_date" value="{{ values.travel_date }}">
+  {% if errors.travel_date %}<span class="error">{{ errors.travel_date }}</span>{% endif %}
+  <button type="submit">Сформировать билет</button>
+</form>
+{% endif %}
+<p><a href="{{ url_for('lab3.lab3_index') }}">Меню лабораторной №3</a></p>
+{% endblock %}

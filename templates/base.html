@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маврин Матвей. {% block lab %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lab2/main.css') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='lab2/favicon.svg') }}">
+<style>
+    body {
+        color: {{ request.cookies.get('color', '#1f2937') | e }};
+        background-color: {{ request.cookies.get('background_color', '#f8fafc') | e }};
+        font-size: {{ request.cookies.get('font_size', '16') }}px;
+        font-style: {{ request.cookies.get('font_style', 'normal') }};
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav><a href="{{ url_for('index') }}">Главное меню</a> · <a href="{{ url_for('lab2.lab2_index') }}">Лабораторная №2</a> · <a href="{{ url_for('lab3.lab3_index') }}">Лабораторная №3</a></nav>
+        <p>WEB-программирование, часть 2. {{ self.lab() }}</p>
+    </header>
+    <main>{% block main %}{% endblock %}</main>
+    <footer>© Маврин Матвей Евгеньевич, ФБИ-44, 3 курс, 2026</footer>
+</body>
+</html>

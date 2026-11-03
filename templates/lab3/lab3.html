@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block lab %}Лабораторная работа 3{% endblock %}
+{% block main %}
+<h1>Формы, GET-запросы и cookie</h1>
+<p>Привет, <span style="color: {{ name_color }}">{{ name }}</span>!</p>
+<p>Возраст: {{ age }}.</p>
+<p>Список сделанных страниц:</p>
+<ol class="links">
+  <li><a href="{{ url_for('lab3.cookie') }}">Установить cookie (Alex, 20 лет, magenta)</a></li>
+  <li><a href="{{ url_for('lab3.del_cookie') }}">Очистить cookie имени, возраста и цвета имени</a></li>
+  <li><a href="{{ url_for('lab3.form1') }}">Анкета пользователя (GET)</a></li>
+  <li><a href="{{ url_for('lab3.order') }}">Заказ напитка</a></li>
+  <li><a href="{{ url_for('lab3.settings') }}">Настройки цвета, фона, размера и начертания текста</a></li>
+  <li><a href="{{ url_for('lab3.clear_settings') }}">Очистить все cookie настроек отображения</a></li>
+  <li><a href="{{ url_for('lab3.train') }}">Железнодорожный билет</a></li>
+  <li><a href="{{ url_for('lab3.products') }}">Поиск товаров по цене (дополнительное задание)</a></li>
+</ol>
+<p class="note">Имя Alex сохраняется в cookie на 5 секунд. При отсутствии cookie появляется приветствие «Аноним».</p>
+{% endblock %}

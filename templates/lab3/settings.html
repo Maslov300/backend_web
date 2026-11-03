@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block lab %}Лабораторная работа 3{% endblock %}
+{% block main %}
+<h1>Настройки отображения</h1>
+<p>Выбранные настройки сохраняются в cookie браузера и применяются ко всем страницам, наследующим базовый шаблон.</p>
+<form action="{{ url_for('lab3.settings') }}" method="get" class="vertical-form">
+  <label for="color">Цвет текста:</label>
+  <input type="color" id="color" name="color" value="{{ color }}">
+  <label for="background_color">Цвет фона:</label>
+  <input type="color" id="background_color" name="background_color" value="{{ background_color }}">
+  <label for="font_size">Размер шрифта (12–32 px):</label>
+  <input type="number" id="font_size" name="font_size" min="12" max="32" value="{{ font_size }}">
+  <label for="font_style">Начертание текста:</label>
+  <select id="font_style" name="font_style">
+    <option value="normal" {% if font_style == 'normal' %}selected{% endif %}>Обычное</option>
+    <option value="italic" {% if font_style == 'italic' %}selected{% endif %}>Курсив</option>
+  </select>
+  <div class="form-actions"><button type="submit">OK</button><a href="{{ url_for('lab3.clear_settings') }}">Сбросить все настройки</a></div>
+</form>
+{% endblock %}

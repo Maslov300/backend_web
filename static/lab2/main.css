@@ -1,0 +1,35 @@
+body { max-width: 1060px; margin: 0 auto; padding: 0 22px; font-family: Arial, sans-serif; line-height: 1.5; color: #1f2937; background: #f8fafc; }
+header { margin: 24px 0; padding: 16px 22px; border-radius: 10px; background: #e6edf6; }
+header p { margin: 8px 0 0; font-weight: 600; }
+main { min-height: 60vh; margin-bottom: 35px; }
+a { color: #174ea6; }
+a:hover { color: #103474; }
+footer { border-top: 1px solid #cbd5e1; padding: 18px 0 28px; text-align: right; }
+li { margin: 8px 0; }
+.links li { margin: 11px 0; }
+.note { color: #64748b; font-size: 0.9rem; }
+form { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+input { padding: 7px; }
+button { cursor: pointer; padding: 7px 12px; }
+table { border-collapse: collapse; width: 100%; background: white; }
+th, td { padding: 9px 11px; border: 1px solid #cbd5e1; text-align: left; }
+th { background: #e2e8f0; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 15px; }
+.tile { padding: 14px; border: 1px solid #dbe3eb; border-radius: 12px; background: white; text-align: center; }
+.tile img { width: 112px; height: 112px; object-fit: contain; }
+.tile h2 { margin: 6px 0; font-size: 18px; }
+.tile p { margin: 3px 0; font-size: 14px; }
+/* Лабораторная №3: формы, сообщения об ошибке и билет */
+.vertical-form { display: flex; flex-direction: column; align-items: stretch; gap: 8px; max-width: 520px; padding: 18px; border: 1px solid #cbd5e1; border-radius: 10px; background: #fff; }
+.vertical-form > label { font-weight: 600; margin-top: 4px; }
+.vertical-form input, .vertical-form select { box-sizing: border-box; padding: 9px; border: 1px solid #aab5c3; border-radius: 6px; max-width: 100%; }
+.vertical-form fieldset { display: flex; flex-direction: column; align-items: stretch; gap: 8px; border: 1px solid #cbd5e1; border-radius: 7px; }
+.vertical-form fieldset label { font-weight: 400; }
+.vertical-form button, .range-form button { align-self: flex-start; padding: 9px 15px; }
+.form-actions { display: flex; align-items: center; gap: 15px; }
+.error { color: #b91c1c; font-weight: 700; }
+.ticket { border: 2px solid #8296b0; padding: 20px 25px; border-radius: 12px; background: white; max-width: 650px; }
+.ticket p { margin: 7px 0; }
+.range-form { margin: 20px 0; }
+.range-form input { max-width: 150px; }
+@media (max-width: 680px) { .range-form { align-items: stretch; flex-direction: column; } }

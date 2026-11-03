@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block lab %}Лабораторная работа 3{% endblock %}
+{% block main %}
+{% if submitted and not errors %}
+  <h1>Привет, {{ user }}!</h1>
+  <h2>Добро пожаловать на наш сайт!</h2>
+  <p>Ваш возраст: {{ age }}.</p>
+  <p>Ваш пол: {{ 'мужской' if sex == 'male' else 'женский' }}.</p>
+  <p><a href="{{ url_for('lab3.form1') }}">Заново</a></p>
+{% else %}
+  <h1>Анкета пользователя</h1>
+  <form class="vertical-form" method="get" action="{{ url_for('lab3.form1') }}" novalidate>
+    <label for="user">Ваше имя:</label>
+    <input type="text" id="user" name="user" placeholder="Как вас зовут?" value="{{ user or '' }}">
+    {% if errors.user %}<span class="error">{{ errors.user }}</span>{% endif %}
+    <label for="age">Ваш возраст:</label>
+    <input type="number" id="age" name="age" min="1" max="120" value="{{ age or '' }}">
+    {% if errors.age %}<span class="error">{{ errors.age }}</span>{% endif %}
+    <label for="sex">Ваш пол:</label>
+    <select name="sex" id="sex">
+      <option value="male" {% if sex == 'male' %}selected{% endif %}>мужской</option>
+      <option value="female" {% if sex == 'female' %}selected{% endif %}>женский</option>
+    </select>
+    {% if errors.sex %}<span class="error">{{ errors.sex }}</span>{% endif %}
+    <button type="submit">Отправить</button>
+  </form>
+{% endif %}
+<p><a href="{{ url_for('lab3.lab3_index') }}">Меню лабораторной №3</a></p>
+{% endblock %}

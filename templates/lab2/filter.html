@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 2{% endblock %}
+{% block main %}
+<h1>Фильтры Jinja</h1>
+<p>Без фильтра: {{ phrase }}</p>
+<p>title: {{ phrase | title }}</p>
+<p>striptags: {{ phrase | striptags }}</p>
+<p>safe: {{ phrase | safe }}</p>
+<p>striptags + replace + upper: {{ phrase | striptags | replace('сколько', 'много') | replace('нам', 'тут') | upper }}</p>
+<p>striptags + reverse: {{ phrase | striptags | reverse }}</p>
+{% endblock %}

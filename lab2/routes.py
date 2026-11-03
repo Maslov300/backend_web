@@ -2,7 +2,7 @@
 
 from flask import Blueprint, abort, redirect, render_template, request, url_for
 
-bp = Blueprint("lab2", __name__, url_prefix="/lab2", template_folder="templates", static_folder="static")
+bp = Blueprint("lab2", __name__, url_prefix="/lab2")
 
 STUDENT = "Маврин Матвей Евгеньевич"
 GROUP = "ФБИ-44"
@@ -67,17 +67,17 @@ def slash_with():
 def flowers(flower_id):
     if flower_id >= len(flower_list):
         abort(404)
-    return render_template("flower_detail.html", flower=flower_list[flower_id], flower_id=flower_id)
+    return render_template("lab2/flower_detail.html", flower=flower_list[flower_id], flower_id=flower_id)
 
 
 @bp.route("/flowers/")
 def all_flowers():
-    return render_template("flowers.html", flowers=flower_list)
+    return render_template("lab2/flowers.html", flowers=flower_list)
 
 
 def append_flower(name, price=300):
     flower_list.append({"name": name, "price": price})
-    return render_template("flower_added.html", flower=name, flowers=flower_list)
+    return render_template("lab2/flower_added.html", flower=name, flowers=flower_list)
 
 
 @bp.route("/add_flower/<name>")
@@ -96,7 +96,7 @@ def add_flower_form():
 @bp.route("/clear_flowers")
 def clear_flowers():
     flower_list.clear()
-    return render_template("flowers_cleared.html")
+    return render_template("lab2/flowers_cleared.html")
 
 
 @bp.route("/del_flower/<int:flower_id>")
@@ -130,18 +130,18 @@ def example():
     ]
     # ?empty=1 демонстрирует работу ветки else в Jinja.
     context = {} if request.args.get("empty") == "1" else {"name": STUDENT, "lab_num": 2, "group": GROUP, "course": COURSE}
-    return render_template("example.html", fruits=fruits, **context)
+    return render_template("lab2/example.html", fruits=fruits, **context)
 
 
 @bp.route("/")
 def lab2_index():
-    return render_template("lab2.html")
+    return render_template("lab2/lab2.html")
 
 
 @bp.route("/filters")
 def filters():
     phrase = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
-    return render_template("filter.html", phrase=phrase)
+    return render_template("lab2/filter.html", phrase=phrase)
 
 
 @bp.route("/calc/")
@@ -156,14 +156,14 @@ def calc_one_number(a):
 
 @bp.route("/calc/<int:a>/<int:b>")
 def calc(a, b):
-    return render_template("calc.html", a=a, b=b)
+    return render_template("lab2/calc.html", a=a, b=b)
 
 
 @bp.route("/books")
 def show_books():
-    return render_template("books.html", books=books)
+    return render_template("lab2/books.html", books=books)
 
 
 @bp.route("/gallery")
 def show_gallery():
-    return render_template("gallery.html", objects=objects)
+    return render_template("lab2/gallery.html", objects=objects)

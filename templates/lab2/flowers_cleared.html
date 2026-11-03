@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 2{% endblock %}
+{% block main %}
+<h1>Список цветов очищен</h1>
+<p>Все записи удалены из списка.</p>
+<a href="{{ url_for('lab2.all_flowers') }}">Посмотреть список цветов</a>
+{% endblock %}

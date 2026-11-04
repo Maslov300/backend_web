@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 4{% endblock %}
+{% block main %}
+<h1>Формы (POST), сессии</h1><p>Страницы лабораторной №4:</p>
+<ul>
+<li><a href="{{ url_for('lab4.div_form') }}">Деление чисел</a></li>
+{% for op,label in [('add','Сложение'),('sub','Вычитание'),('mul','Умножение'),('pow','Возведение в степень')] %}<li><a href="{{ url_for('lab4.arithmetic_form', operation=op) }}">{{ label }}</a></li>{% endfor %}
+<li><a href="{{ url_for('lab4.tree') }}">Счётчик деревьев</a></li>
+<li><a href="{{ url_for('lab4.login') }}">Авторизация и сессии</a></li>
+<li><a href="{{ url_for('lab4.register') }}">Регистрация</a></li>
+<li><a href="{{ url_for('lab4.user_list') }}">Список пользователей</a></li>
+<li><a href="{{ url_for('lab4.weather') }}">Погода</a></li>
+<li><a href="{{ url_for('lab4.concrete') }}">Заказ бетона</a></li>
+</ul>
+{% endblock %}

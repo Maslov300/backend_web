@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block lab %}Нравится / не нравится{% endblock %}
+{% block main %}
+<h1>Счётчик деревьев</h1><p>Посажено деревьев: {{ tree_count }}</p><form method="post" action="{{ url_for('lab4.tree') }}"><button name="operation" value="plant" {% if tree_count >= tree_max %}disabled{% endif %}>Посадить дерево</button><button name="operation" value="cut" {% if tree_count <= 0 %}disabled{% endif %}>Срубить дерево</button></form><p>Допустимый диапазон: 0–{{ tree_max }}</p>
+{% endblock %}

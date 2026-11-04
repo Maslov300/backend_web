@@ -33,3 +33,6 @@ th { background: #e2e8f0; }
 .range-form { margin: 20px 0; }
 .range-form input { max-width: 150px; }
 @media (max-width: 680px) { .range-form { align-items: stretch; flex-direction: column; } }
+
+.error { color: #bc2020; font-weight: bold; }
+form button { margin: 6px; }

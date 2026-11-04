@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block lab %}Редактирование профиля{% endblock %}
+{% block main %}
+<h1>Редактирование профиля</h1>{% if error %}<p class="error">{{ error }}</p>{% endif %}<form method="post"><p><label>Логин <input name="login" value="{{ (values or {}).get('login', user.login) }}" required></label></p><p><label>Имя <input name="name" value="{{ (values or {}).get('name', user.name) }}" required></label></p><p><label>Пол <select name="sex"><option value="male" {% if user.sex == 'male' %}selected{% endif %}>Мужской</option><option value="female" {% if user.sex == 'female' %}selected{% endif %}>Женский</option></select></label></p><p><label>Новый пароль (оставьте пустым для сохранения старого) <input type="password" name="password"></label></p><p><label>Подтвердите новый пароль <input type="password" name="confirm"></label></p><button type="submit">Сохранить</button></form>
+{% endblock %}

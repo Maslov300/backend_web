@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block lab %}Арифметика{% endblock %}
+{% block main %}
+<h1>{{ title }}</h1>{% if error %}<p class="error">{{ error }}</p>{% else %}<p>{{ x1 if x1 else (0 if operation=='add' else 1) }} {{ sign }} {{ x2 if x2 else (0 if operation=='add' else 1) }} = {{ result }}</p>{% endif %}<p><a href="{{ url_for('lab4.div_form') if operation=='div' else url_for('lab4.arithmetic_form',operation=operation) }}">Вернуться к форме</a></p>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block lab %}Регистрация{% endblock %}
+{% block main %}
+<h1>Регистрация</h1>{% if error %}<p class="error">{{ error }}</p>{% endif %}<form method="post"><p><label>Логин <input name="login" value="{{ (values or {}).get('login','') }}" required></label></p><p><label>Имя <input name="name" value="{{ (values or {}).get('name','') }}" required></label></p><p><label>Пол <select name="sex"><option value="male">Мужской</option><option value="female">Женский</option></select></label></p><p><label>Пароль <input type="password" name="password" required></label></p><p><label>Подтверждение пароля <input type="password" name="confirm" required></label></p><button type="submit">Зарегистрироваться</button></form>
+{% endblock %}

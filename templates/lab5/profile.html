@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 5 — Flask и БД{% endblock %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lab5/main.css') }}">
+<section class="kb-wrap">
+<h1>Редактирование профиля</h1>
+<nav class="kb-nav"><a href="{{ url_for('lab5.home') }}">Главная</a><a href="{{ url_for('lab5.article_list') }}">Мои статьи</a><a href="{{ url_for('lab5.create') }}">Создать статью</a><a href="{{ url_for('lab5.public_articles') }}">Публичные статьи</a><a href="{{ url_for('lab5.users') }}">Пользователи</a>{% if user %}<a href="{{ url_for('lab5.profile') }}">Профиль</a><form action="{{ url_for('lab5.logout') }}" method="post"><button>Выйти</button></form>{% else %}<a href="{{ url_for('lab5.login') }}">Войти</a><a href="{{ url_for('lab5.register') }}">Регистрация</a>{% endif %}</nav>
+{% if error %}<p class="kb-error">{{ error }}</p>{% endif %}<p>Логин: {{ user.login }}</p><form method="post" class="kb-form"><label>Имя<input name="name" value="{{ user.name }}" maxlength="100" required></label><label>Новый пароль (необязательно)<input type="password" name="password"></label><label>Повторите новый пароль<input type="password" name="confirmation"></label><p class="kb-muted">Оставьте поля пароля пустыми, чтобы сохранить прежний пароль.</p><button>Обновить</button></form>
+</section>
+{% endblock %}

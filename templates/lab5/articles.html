@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 5 — Flask и БД{% endblock %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lab5/main.css') }}">
+<section class="kb-wrap">
+<h1>Мои статьи</h1>
+<nav class="kb-nav"><a href="{{ url_for('lab5.home') }}">Главная</a><a href="{{ url_for('lab5.article_list') }}">Мои статьи</a><a href="{{ url_for('lab5.create') }}">Создать статью</a><a href="{{ url_for('lab5.public_articles') }}">Публичные статьи</a><a href="{{ url_for('lab5.users') }}">Пользователи</a>{% if user %}<a href="{{ url_for('lab5.profile') }}">Профиль</a><form action="{{ url_for('lab5.logout') }}" method="post"><button>Выйти</button></form>{% else %}<a href="{{ url_for('lab5.login') }}">Войти</a><a href="{{ url_for('lab5.register') }}">Регистрация</a>{% endif %}</nav>
+{% if not articles %}<p>У вас пока нет ни одной статьи.</p>{% else %}{% for a in articles %}<article class="kb-article"><h2>{{ a.title }} {% if a.is_favorite %}★{% endif %}</h2><p class="kb-muted">{{ 'Публичная' if a.is_public else 'Личная' }} · Лайки: {{ a.likes or 0 }}</p><div class="kb-content">{{ a.article_text }}</div><div class="kb-actions"><a href="{{ url_for('lab5.edit', article_id=a.id) }}">Редактировать</a><form method="post" action="{{ url_for('lab5.favorite', article_id=a.id) }}"><button>{{ 'Убрать из избранного' if a.is_favorite else 'В избранное' }}</button></form><form method="post" action="{{ url_for('lab5.delete', article_id=a.id) }}" onsubmit="return confirm('Удалить статью?')"><button>Удалить</button></form></div></article>{% endfor %}{% endif %}
+</section>
+{% endblock %}

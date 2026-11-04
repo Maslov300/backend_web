@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа 5 — Flask и БД{% endblock %}
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lab5/main.css') }}">
+<section class="kb-wrap">
+<h1>Зарегистрированные пользователи</h1>
+<nav class="kb-nav"><a href="{{ url_for('lab5.home') }}">Главная</a><a href="{{ url_for('lab5.article_list') }}">Мои статьи</a><a href="{{ url_for('lab5.create') }}">Создать статью</a><a href="{{ url_for('lab5.public_articles') }}">Публичные статьи</a><a href="{{ url_for('lab5.users') }}">Пользователи</a>{% if user %}<a href="{{ url_for('lab5.profile') }}">Профиль</a><form action="{{ url_for('lab5.logout') }}" method="post"><button>Выйти</button></form>{% else %}<a href="{{ url_for('lab5.login') }}">Войти</a><a href="{{ url_for('lab5.register') }}">Регистрация</a>{% endif %}</nav>
+{% if people %}<ul>{% for person in people %}<li>{{ person.login }} — {{ person.name }}</li>{% endfor %}</ul>{% else %}<p>Пользователей пока нет.</p>{% endif %}
+</section>
+{% endblock %}

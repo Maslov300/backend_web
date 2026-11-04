@@ -11,6 +11,7 @@ from lab1.app import bp as lab1_bp
 from lab2.routes import bp as lab2_bp
 from lab3.routes import bp as lab3_bp
 from lab4.routes import bp as lab4_bp
+from lab5.routes import bp as lab5_bp
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(32)
@@ -18,6 +19,7 @@ app.register_blueprint(lab1_bp)
 app.register_blueprint(lab2_bp)
 app.register_blueprint(lab3_bp)
 app.register_blueprint(lab4_bp)
+app.register_blueprint(lab5_bp)
 
 LOG_FILE = Path(__file__).resolve().parent / "access.log"
 
@@ -56,6 +58,7 @@ def index():
     <li><a href="{{ url_for('lab2.lab2_index') }}">Лабораторная №2 — Шаблоны во Flask</a></li>
     <li><a href="{{ url_for('lab3.lab3_index') }}">Лабораторная №3 — Формы (GET), cookie</a></li>
     <li><a href="{{ url_for('lab4.home') }}">Лабораторная №4 — Формы (POST), сессии</a></li>
+    <li><a href="{{ url_for('lab5.home') }}">Лабораторная №5 — Flask и БД</a></li>
   </ol>
   <footer>© Маврин Матвей Евгеньевич, ФБИ-44, 3 курс, 2026</footer>
 </body></html>""")
